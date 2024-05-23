@@ -1,5 +1,6 @@
 package com.example.javafx_demo.View.viewmodels;
 
+import com.example.javafx_demo.BL.IUserService;
 import com.example.javafx_demo.BL.UserService;
 import com.example.javafx_demo.BL.models.UserModel;
 import javafx.collections.FXCollections;
@@ -8,7 +9,7 @@ import lombok.Getter;
 
 
 public class AfterLoginViewModel {
-    UserService userService;
+    private final IUserService userService;
 
     @Getter
     private ObservableList<UserModel> userTableList;

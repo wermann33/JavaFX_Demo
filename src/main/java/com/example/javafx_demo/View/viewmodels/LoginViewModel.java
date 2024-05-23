@@ -1,9 +1,10 @@
 package com.example.javafx_demo.View.viewmodels;
 
+import com.example.javafx_demo.BL.IUserService;
 import com.example.javafx_demo.BL.UserService;
 
 public class LoginViewModel {
-    private final UserService userService;
+    private final IUserService userService;
 
     public LoginViewModel() {
         this.userService = new UserService();
