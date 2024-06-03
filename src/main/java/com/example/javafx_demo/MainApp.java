@@ -9,7 +9,7 @@ import lombok.Getter;
 
 import java.io.IOException;
 import java.util.Objects;
-public class MainApp extends Application {
+public class MainApp extends Application implements Injectable{
 
     @Getter
     private static Stage stg;

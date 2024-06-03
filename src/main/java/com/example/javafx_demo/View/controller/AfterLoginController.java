@@ -1,6 +1,7 @@
 package com.example.javafx_demo.View.controller;
 
 import com.example.javafx_demo.BL.models.UserModel;
+import com.example.javafx_demo.DefaultInjector;
 import com.example.javafx_demo.MainApp;
 import com.example.javafx_demo.View.viewmodels.AfterLoginViewModel;
 import javafx.event.ActionEvent;
@@ -25,8 +26,8 @@ public class AfterLoginController implements Initializable {
     private TableColumn<UserModel, String> usernameColumn;
     @FXML
     private TableColumn<UserModel, String> passwordColumn;
-    MainApp m = new MainApp();
-    AfterLoginViewModel afterLoginViewModel = new AfterLoginViewModel();
+    MainApp mainApp;
+    AfterLoginViewModel afterLoginViewModel;
 
     @FXML
     private Button addButton;
@@ -40,10 +41,14 @@ public class AfterLoginController implements Initializable {
     @FXML
     private Button logOutButton;
 
+    public AfterLoginController() {
+        this.mainApp = DefaultInjector.getService(MainApp.class);
+        this.afterLoginViewModel = DefaultInjector.getService(AfterLoginViewModel.class);
+    }
 
     @FXML
     void logOut(ActionEvent event) throws IOException {
-        m.changeScene("mainWindow.fxml");
+        mainApp.changeScene("mainWindow.fxml");
     }
 
     @FXML

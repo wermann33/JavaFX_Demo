@@ -1,5 +1,6 @@
 package com.example.javafx_demo.View.controller;
 
+import com.example.javafx_demo.DefaultInjector;
 import com.example.javafx_demo.MainApp;
 import com.example.javafx_demo.View.viewmodels.LoginViewModel;
 import javafx.event.ActionEvent;
@@ -12,10 +13,11 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class mainWindowController {
-    MainApp mainApp = new MainApp();
-    private final LoginViewModel loginViewModel = new LoginViewModel();
+    MainApp mainApp;
+    private final LoginViewModel loginViewModel;
     public mainWindowController() {
-
+        this.mainApp = DefaultInjector.getService(MainApp.class);
+        this.loginViewModel = DefaultInjector.getService(LoginViewModel.class);
     }
 
     @FXML

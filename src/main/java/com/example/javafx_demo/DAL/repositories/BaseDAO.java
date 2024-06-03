@@ -1,10 +1,11 @@
 package com.example.javafx_demo.DAL.repositories;
 
 import com.example.javafx_demo.DAL.HibernateUtil;
+import com.example.javafx_demo.Injectable;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public abstract class BaseDAO<T> {
+public abstract class BaseDAO<T>  implements Injectable {
     protected Session getSession() {
         return HibernateUtil.getSessionFactory().openSession();
     }

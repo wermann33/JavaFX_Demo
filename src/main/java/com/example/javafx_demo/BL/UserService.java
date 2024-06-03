@@ -2,14 +2,17 @@ package com.example.javafx_demo.BL;
 import com.example.javafx_demo.DAL.repositories.UserDAO;
 
 import com.example.javafx_demo.BL.models.UserModel;
+import com.example.javafx_demo.DefaultInjector;
+import com.example.javafx_demo.Injectable;
 
 import java.util.List;
 
-public class UserService implements IUserService{
+public class UserService implements IUserService, Injectable {
     private final UserDAO userDAO;
 
     public UserService() {
-        this.userDAO = new UserDAO();
+
+        this.userDAO = DefaultInjector.getService(UserDAO.class);
     }
 
     @Override
