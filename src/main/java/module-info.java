@@ -8,6 +8,9 @@ module com.example.javafx_demo {
     requires org.hibernate.orm.core;
     requires java.persistence;
     requires java.naming;
+    requires kernel;
+    requires layout;
+    requires io;
 
 
     opens com.example.javafx_demo to javafx.fxml, javafx.graphics;

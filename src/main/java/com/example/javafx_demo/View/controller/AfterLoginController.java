@@ -21,13 +21,15 @@ import java.util.ResourceBundle;
 public class AfterLoginController implements Initializable {
 
     @FXML
+    public Button generatePDFButton;
+    @FXML
     private TableView<UserModel> userTable;
     @FXML
     private TableColumn<UserModel, String> usernameColumn;
     @FXML
     private TableColumn<UserModel, String> passwordColumn;
-    MainApp mainApp;
-    AfterLoginViewModel afterLoginViewModel;
+    private final MainApp mainApp;
+    private final AfterLoginViewModel afterLoginViewModel;
 
     @FXML
     private Button addButton;
@@ -40,6 +42,11 @@ public class AfterLoginController implements Initializable {
 
     @FXML
     private Button logOutButton;
+
+    @FXML
+    public void generatePDF(ActionEvent actionEvent) {
+
+    }
 
     public AfterLoginController() {
         this.mainApp = DefaultInjector.getService(MainApp.class);
@@ -56,6 +63,7 @@ public class AfterLoginController implements Initializable {
         MainApp.getStg().close();
     }
 
+    @FXML
     public void addUser(ActionEvent actionEvent) {
         TextInputDialog usernameDialog = new TextInputDialog();
         usernameDialog.setTitle("Add User");
@@ -95,6 +103,7 @@ public class AfterLoginController implements Initializable {
         afterLoginViewModel.addUser(newUser);
     }
 
+    @FXML
     public void deleteUser(ActionEvent actionEvent) {
         UserModel selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
@@ -108,4 +117,6 @@ public class AfterLoginController implements Initializable {
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
         userTable.setItems(afterLoginViewModel.getUserTableList());
     }
+
+
 }

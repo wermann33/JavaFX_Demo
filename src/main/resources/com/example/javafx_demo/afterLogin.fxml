@@ -25,16 +25,17 @@
             </Button>
             <Button fx:id="addButton" layoutY="225.0" mnemonicParsing="false" onAction="#addUser" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #abf5c3;" text=" Add User" />
             <Button fx:id="deleteButton" layoutX="172.0" layoutY="225.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: #f5a2bf;" text="Delete User" />
+            <Button fx:id="generatePDFButton" layoutY="280.0" onAction="#generatePDF" prefHeight="34.0" prefWidth="148.0" style="-fx-background-color: yellow;" text="Generate PDF" />
          </children>
       </AnchorPane>
    </bottom>
    <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView  fx:id="userTable" prefHeight="334.0" prefWidth="489.0">
+            <TableView fx:id="userTable" prefHeight="334.0" prefWidth="489.0">
               <columns>
-                <TableColumn fx:id="usernameColumn" prefWidth="248.79999083280563" text="username"/>
-                <TableColumn fx:id="passwordColumn" prefWidth="239.99998474121094" text="password"/>
+                <TableColumn fx:id="usernameColumn" prefWidth="248.79999083280563" text="username" />
+                <TableColumn fx:id="passwordColumn" prefWidth="239.99998474121094" text="password" />
               </columns>
             </TableView>
             <ImageView fitHeight="334.0" fitWidth="311.0" layoutX="490.0" pickOnBounds="true" preserveRatio="true">
