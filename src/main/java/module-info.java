@@ -11,9 +11,11 @@ module com.example.javafx_demo {
     requires kernel;
     requires layout;
     requires io;
+    requires org.apache.logging.log4j;
+    requires org.apache.logging.log4j.core;
 
 
-    opens com.example.javafx_demo to javafx.fxml, javafx.graphics;
+    opens com.example.javafx_demo to javafx.fxml, javafx.graphics, org.apache.logging.log4j;
     exports com.example.javafx_demo;
     exports com.example.javafx_demo.View.controller;
     exports com.example.javafx_demo.BL;
