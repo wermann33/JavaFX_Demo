@@ -1,5 +1,7 @@
 package com.example.javafx_demo.View.controller;
 
+import com.example.javafx_demo.BL.IPDFService;
+import com.example.javafx_demo.BL.PDFService;
 import com.example.javafx_demo.BL.models.UserModel;
 import com.example.javafx_demo.DefaultInjector;
 import com.example.javafx_demo.MainApp;
@@ -30,6 +32,7 @@ public class AfterLoginController implements Initializable {
     private TableColumn<UserModel, String> passwordColumn;
     private final MainApp mainApp;
     private final AfterLoginViewModel afterLoginViewModel;
+    private final IPDFService pdfService;
 
     @FXML
     private Button addButton;
@@ -45,12 +48,19 @@ public class AfterLoginController implements Initializable {
 
     @FXML
     public void generatePDF(ActionEvent actionEvent) {
-
+        try{
+            pdfService.createUserListPDF("UserList.pdf");
+            System.out.println("PDF generated successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     public AfterLoginController() {
         this.mainApp = DefaultInjector.getService(MainApp.class);
         this.afterLoginViewModel = DefaultInjector.getService(AfterLoginViewModel.class);
+        this.pdfService = DefaultInjector.getService(PDFService.class);
     }
 
     @FXML
