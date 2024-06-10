@@ -1,5 +1,7 @@
-package com.example.javafx_demo.BL;
+package com.example.javafx_demo.Services;
 
+import com.example.javafx_demo.BL.IUserService;
+import com.example.javafx_demo.BL.UserService;
 import com.example.javafx_demo.BL.models.UserModel;
 import com.example.javafx_demo.DefaultInjector;
 import com.example.javafx_demo.Injectable;
@@ -14,20 +16,22 @@ import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.TabAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.kernel.colors.ColorConstants;
-
-
-import javax.swing.text.StyleConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Objects;
 
 public class PDFService implements IPDFService, Injectable {
     private final IUserService userService;
+    private final Logger logger;
+
 
     public PDFService() {
         this.userService = DefaultInjector.getService(UserService.class);
+        logger = LoggerFactory.getLogger(PDFService.class);
+        logger.info("PDFService initialized");
     }
 
     @Override
@@ -35,6 +39,7 @@ public class PDFService implements IPDFService, Injectable {
         PdfWriter writer = new PdfWriter(filePath);
         PdfDocument pdfDoc = new PdfDocument(writer);
         Document document = new Document(pdfDoc);
+        logger.info("Creating PDF at {}", filePath);
 
         //Bild hinzufügen
         ImageData imageData = ImageDataFactory.create(Objects.requireNonNull(
@@ -67,5 +72,6 @@ public class PDFService implements IPDFService, Injectable {
         //Tabelle zum Dokument hinzufügen
         document.add(table);
         document.close();
+        logger.info("PDF created successfully at {}", filePath);
     }
 }

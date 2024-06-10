@@ -8,12 +8,13 @@ module com.example.javafx_demo {
     requires org.hibernate.orm.core;
     requires java.persistence;
     requires java.naming;
-    requires kernel;
-    requires layout;
-    requires io;
     requires org.apache.logging.log4j;
     requires org.apache.logging.log4j.core;
-
+    requires org.apache.logging.log4j.slf4j;
+    requires io;
+    requires kernel;
+    requires layout;
+    requires org.slf4j;
 
     opens com.example.javafx_demo to javafx.fxml, javafx.graphics, org.apache.logging.log4j;
     exports com.example.javafx_demo;

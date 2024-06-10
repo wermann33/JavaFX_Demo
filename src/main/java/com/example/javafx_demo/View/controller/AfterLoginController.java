@@ -1,7 +1,7 @@
 package com.example.javafx_demo.View.controller;
 
-import com.example.javafx_demo.BL.IPDFService;
-import com.example.javafx_demo.BL.PDFService;
+import com.example.javafx_demo.Services.IPDFService;
+import com.example.javafx_demo.Services.PDFService;
 import com.example.javafx_demo.BL.models.UserModel;
 import com.example.javafx_demo.DefaultInjector;
 import com.example.javafx_demo.MainApp;
